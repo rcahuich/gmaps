@@ -12,8 +12,8 @@
     $(document).ready(function(){
       var url = GMaps.staticMapURL({
         size: [610, 350],
-        lat: -12.043333,
-        lng: -77.028333
+        lat: 19.3901942,
+        lng: -99.1541944
       });
       $('<img/>').attr('src', url).appendTo('#map');
     });
@@ -27,7 +27,7 @@
     </div>
     <div class="span6">
       <p>You can easily make a static map using GMaps.js:</p>
-      <pre>url = GMaps.staticMapURL({
+      <pre>url = GMaps.staticMapURL({ 
   size: [610, 350],
   lat: -12.043333,
   lng: -77.028333

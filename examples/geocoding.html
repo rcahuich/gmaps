@@ -11,11 +11,18 @@
   <script type="text/javascript">
     var map;
     $(document).ready(function(){
+
       map = new GMaps({
         div: '#map',
         lat: -12.043333,
-        lng: -77.028333
+        lng: -77.028333,
+        click: function(e){
+   
+            alert('sip');
+   
+        },
       });
+
       $('#geocoding_form').submit(function(e){
         e.preventDefault();
         GMaps.geocode({
@@ -24,14 +31,25 @@
             if(status=='OK'){
               var latlng = results[0].geometry.location;
               map.setCenter(latlng.lat(), latlng.lng());
+              $('#lat').val(latlng.lat());
+              $('#lon').val(latlng.lng());
               map.addMarker({
                 lat: latlng.lat(),
-                lng: latlng.lng()
+                lng: latlng.lng(),
               });
             }
           }
         });
+
+
+
+       
+
       });
+
+
+
+
     });
   </script>
 </head>
@@ -47,6 +65,13 @@
         </div>
       </form>
       <div id="map"></div>
+      <div>
+        <br/>
+        <form method="post" id="salida">
+          <input id="lat" placeholder="Latitud"/>
+          <input id="lon" placeholder="Longitud"/>
+        </form>
+      </div>
     </div>
     <div class="span6">
       <p>You can geocoding this way:</p>
