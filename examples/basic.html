@@ -12,10 +12,18 @@
     var map;
     $(document).ready(function(){
       map = new GMaps({
-        div: '#map',
+        el: '#map',
         lat: -12.043333,
         lng: -77.028333,
-        height: '100px'
+        zoomControl : true,
+        zoomControlOpt: {
+            style : 'SMALL',
+            position: 'TOP_LEFT'
+        },
+        panControl : false,
+        streetViewControl : false,
+        mapTypeControl: false,
+        overviewMapControl: false
       });
     });
   </script>
@@ -29,12 +37,12 @@
     <div class="span6">
       <p>Using GMaps.js is as easy as:</p>
       <pre>new GMaps({
-  div: '#map',
+  el: '#map',
   lat: -12.043333,
   lng: -77.028333
 });</pre>
       <p>You must define <strong>container ID</strong>, <strong>latitude</strong> and <strong>longitude</strong> of the map's center.</p>
-      <p><span class="label notice">Note: </span>You also can define <strong>zoom</strong>, <strong>width</strong> and <strong>height</strong>. By default, zoom is 15. Width an height in a CSS class will replace these values.</p>
+      <p><span class="label notice">Note: </span>You also can define <strong>zoom</strong>, <strong>width</strong> and <strong>height</strong>. By default, zoom is 15. Width and height in a CSS class will replace these values.</p>
     </div>
   </div>
 </body>

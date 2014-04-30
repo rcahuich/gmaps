@@ -12,7 +12,7 @@
     var map;
     $(document).ready(function(){
       map = new GMaps({
-        div: '#map',
+        el: '#map',
         lat: -12.043333,
         lng: -77.028333
       });
@@ -22,6 +22,8 @@
           title: 'Add marker',
           name: 'add_marker',
           action: function(e){
+            console.log(e.latLng.lat());
+            console.log(e.latLng.lng());
             this.addMarker({
               lat: e.latLng.lat(),
               lng: e.latLng.lng(),
@@ -30,6 +32,16 @@
             this.hideContextMenu();
           }
         }, {
+          title: 'Center here',
+          name: 'center_here',
+          action: function(e){
+            this.setCenter(e.latLng.lat(), e.latLng.lng());
+          }
+        }]
+      });
+      map.setContextMenu({
+        control: 'marker',
+        options: [{
           title: 'Center here',
           name: 'center_here',
           action: function(e){
